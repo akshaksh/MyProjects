@@ -1,0 +1,69 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="SYSTEM" />
+		<property name="password" value="SYSTEM_1" />
+	</bean>
+	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE" />
+        <property name="user" value="system" />
+        <property name="password" value="SYSTEM_1"/> 
+        these are connection pool properties for C3P0
+        <property name="minPoolSize" value="5" />
+        <property name="maxPoolSize" value="20" />
+        <property name="maxIdleTime" value="30000" />
+    </bean>
+ -->
+	<!-- Hibernate session factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>Users.hbm.xml</value>
+				<value>UserRoles.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+		    <props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</prop>
+				<prop key="hibernate.connection.username">system</prop>
+				<prop key="hibernate.connection.password">SYSTEM_1</prop>
+				<prop key="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</prop>
+				<prop key="hibernate.connection.autocommit">true</prop>
+				<prop key="hibernate.connection.show_sql">true</prop>
+		    </props>
+		</property>
+	</bean>
+
+	<bean id="userDao" class="com.ajay.dao.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="myUserDetailsService"
+                class="com.ajay.userservice.MyUserDetailsService">
+		<property name="userDao" ref="userDao" />
+	</bean>
+
+	<!-- MUST have transaction manager, using aop and aspects  -->
+	<!-- <bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean> -->
+<!-- 
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	    <tx:attributes>
+		<tx:method name="get*" read-only="true" />
+		<tx:method name="find*" read-only="true" />
+		<tx:method name="*" />
+	    </tx:attributes>
+	</tx:advice> -->
+
+</beans>
