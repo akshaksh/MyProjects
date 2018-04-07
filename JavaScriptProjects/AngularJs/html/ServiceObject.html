@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Service Object</title>
+<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+<script>
+var app=angular.module("myapp", []);
+app.service("CalcService", function() {
+	this.square=function(a){return a*a;}
+	this.addition=function(a,b){return a+b;}
+})
+app.controller("myctrl", function($scope,CalcService) {
+	$scope.mul=CalcService.square(25);
+	$scope.add=CalcService.addition(30,60)
+})
+</script>
+Mul: {{mul}}<br>
+Sum: {{add}}<br>
+</body>
+</html>

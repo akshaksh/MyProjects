@@ -1,0 +1,32 @@
+<!DOCTYPE html>  
+<html>  
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>  
+<body>  
+<div ng-app="myApp" ng-controller="myCtrl">  
+First Name: <input type="text" ng-model="firstName"><br>  
+Last Name: <input type="text" ng-model="lastName"><br>  
+<br>  
+Full Name: {{firstName + " " + lastName}}<br>
+Full Name with function: {{fullName()}}<br>
+</div>  
+<script>  
+var app = angular.module('myApp', []);  
+app.controller('myCtrl', function($scope) {  
+    $scope.firstName = "Aryan";  
+    $scope.lastName = "Khanna";
+    $scope.fullName = function() {  
+        return $scope.firstName + " " + $scope.lastName;  
+    }; 
+});  
+</script>  
+  
+</body>  
+</html>
+
+<!-- Here, the AngularJS application runs inside the <div> is defined by ng-app="myApp".
+The AngularJS directive is ng-controller="myCtrl" attribute.
+The myCtrl function is a JavaScript function.
+AngularJS will invoke the controller with a $scope object.
+In AngularJS, $scope is the application object (the owner of application variables and functions).
+The controller creates two properties (variables) in the scope (firstName and lastName).
+The ng-model directives bind the input fields to the controller properties (firstName and lastName). -->  

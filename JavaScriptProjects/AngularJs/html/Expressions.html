@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular Js Expressions</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body ng-app="" ng-init="firstName='Ajay';lastName='Kushwaha'">
+Full Name: {{firstName+" "+lastName}}<br>
+<p ng-bind="firstName+' '+lastName"></p>
+</body>
+</html>
+
+<!-- Note: If you remove the directive "ng-app", HTML will display the expression without solving it. -->

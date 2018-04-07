@@ -1,0 +1,15 @@
+<!DOCTYPE html>  
+<html>  
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>  
+<body>  
+<div ng-app="" data-ng-init="quantity=1;price=20">  
+<h2>Cost Calculator</h2>  
+Quantity: <input type="number" ng-model="quantity">  
+Price: <input type="number" ng-model="price">  
+<p><b>Total in rupees:</b> {{quantity * price}}</p>  
+</div>  
+</body>  
+</html> 
+
+<!-- In the above example, the {{quantity * price}} expression is an AngularJS data binding expression. Data binding in AngularJS binds AngularJS expressions with AngularJS data.
+{{quantity * price}} is bound with ng-model="quantity" and ng-model="price". -->
