@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">  
+  
+<hibernate-configuration>  
+  
+    <session-factory>  
+        <property name="hbm2ddl.auto">update</property>  
+        <property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>  
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>  
+        <property name="connection.username">system</property>  
+        <property name="connection.password">system</property>  
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="show_sql">true</property>
+        <!-- If you are using Hibernate without annotation the we use mapping tag with resource attribute in configuration file -->
+        <!-- And in case of annotation we use mapping with class attribute -->  
+   <!-- <mapping resource="employee.hbm.xml"/> -->
+    <!-- <mapping class="annotation.Employee"/> -->  
+    <!-- <mapping class="webappwithhibernate.User"/> -->
+    
+    <!-- Table Per Class Hierarchy Annotation START -->
+    <!--  <mapping class="hibernatemappinghierarchy.tableperclasshier.annotation.Employee"/>  
+     <mapping class="hibernatemappinghierarchy.tableperclasshier.annotation.Contract_Employee"/>  
+     <mapping class="hibernatemappinghierarchy.tableperclasshier.annotation.Regular_Employee"/> -->
+     <!-- Table Per Class Hierarchy Annotation END -->
+     
+     <!-- Table Per Concrete Class Hierarchy Annotation START -->
+     <!-- <mapping class="hibernatemappinghierarchy.tableperconcreteclassannotation.Employee"/>  
+     <mapping class="hibernatemappinghierarchy.tableperconcreteclassannotation.Contract_Employee"/>  
+     <mapping class="hibernatemappinghierarchy.tableperconcreteclassannotation.Regular_Employee"/> -->
+     <!-- Table Per Concrete Class Hierarchy Annotation END -->
+     
+     
+     <!-- Table Per Sub Class Hierarchy START Annotation -->
+<!--  <mapping class="hibernatemappinghierarchy.tablepersubclassannotation.Employee"/>  
+<mapping class="hibernatemappinghierarchy.tablepersubclassannotation.Contract_Employee"/>  
+<mapping class="hibernatemappinghierarchy.tablepersubclassannotation.Regular_Employee"/> -->
+<!-- Table Per Sub Class Hierarchy START End -->  
+    <!--  <mapping resource="question.hbm.xml"/> -->
+    <!-- <mapping class="hql.Employeerecords"/>  
+    <mapping class="hql.Oldemployeerecords"/> -->
+    
+    <!-- Second Level Cache Example Mapping Start -->
+    <property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>  
+    <property name="hibernate.cache.use_second_level_cache">true</property>  
+    <mapping resource="employee.hbm.xml"/> 
+    <!-- Second Level Cache Example Mapping END -->
+  </session-factory>  
+  
+  
+</hibernate-configuration>  

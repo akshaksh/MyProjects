@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+<hibernate-mapping>  
+ <!-- List MAapping with String DataType START -->
+<!--  <class name="listmapping.Question" table="question">  
+   <id name="id">  
+     <generator class="increment"></generator>  
+   </id>  
+   <property name="qname"></property>  
+            
+   <list name="answers" table="answers">  
+     <key column="qid"></key>  
+     <index column="type"></index>  
+     <element column="answer" type="string"></element>  
+   </list>  
+            
+ </class>  
+ --> 
+ <!-- List Mappingwith String END -->
+ 
+ <!-- List Mapping with References START -->
+ <!-- <class name="onetomanymappingusinglist.Question" table="question">  
+          <id name="id">  
+          <generator class="increment"></generator>  
+          </id>  
+          <property name="qname"></property>  
+            
+          <list name="answers" cascade="all">  
+          <key column="qid"></key>  
+          <index column="type"></index>  
+          <one-to-many class="onetomanymappingusinglist.Answer"/>  
+          </list> 
+          
+          Instead of List we can use Bag Interface
+          <bag name="answers" cascade="all">  
+          <key column="qid"></key>    
+          <one-to-many class="onetomanymappingusinglist.Answer"/>  
+          </bag>  
+            
+          </class>  
+            
+          <class name="onetomanymappingusinglist.Answer" table="answer">  
+          <id name="id">  
+          <generator class="increment"></generator>  
+          </id>  
+          <property name="answer"></property>  
+          <property name="postedBy"></property>  
+          </class>
+ -->
+<!-- List Mapping with reference END -->
+
+<!-- Set MApping START -->
+<!-- <class name="setmapping.Question" table="questionset">  
+   <id name="id">  
+     <generator class="increment"></generator>  
+   </id>  
+   <property name="qname"></property> 
+   Set is similar to the list the only difference is that it does not have index column 
+   <set name="answers" table="answersset">  
+     <key column="qid"></key>  
+     <element column="answer" type="string"></element>  
+   </set>  
+ </class>  
+ --> 
+ <!-- Set MApping END -->
+ <!-- Set Mapping using reference Start -->
+ <!-- <class name="onetomanymappingusingset.Question" table="questionsetone">  
+          <id name="id">  
+          <generator class="increment"></generator>  
+          </id>  
+          <property name="qname"></property>  
+            
+          <set name="answers" cascade="all">  
+          <key column="qid"></key>  
+          <one-to-many class="onetomanymappingusingset.Answer"/>  
+          </set> 
+ </class>  
+          <class name="onetomanymappingusingset.Answer" table="answerssetone">  
+          <id name="id">  
+          <generator class="increment"></generator>  
+          </id>  
+          <property name="answer"></property>  
+          <property name="postedBy"></property>  
+          </class> -->
+ <!-- Set Mapping using reference END -->
+ 
+ 
+ 
+ <class name="mapMapping.Question" table="questionmap">  
+<id name="id">  
+<generator class="increment"></generator>  
+</id>  
+<property name="name"></property>  
+<property name="username"></property>  
+  
+<map name="answers" table="answermap" cascade="all">  
+<key column="questionid"></key>  
+<index column="answer" type="string"></index>  
+<element column="username" type="string"></element>  
+</map>  
+</class>
+ 
+</hibernate-mapping> 

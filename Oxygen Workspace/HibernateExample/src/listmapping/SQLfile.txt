@@ -1,0 +1,11 @@
+create table question(
+id integer primary key,
+qname varchar2(50)
+);
+
+create table answers(
+qid integer,
+type integer,
+answer varchar2(50),
+CONSTRAINT BRANCH_fk FOREIGN KEY(qid) REFERENCES question(id)
+)

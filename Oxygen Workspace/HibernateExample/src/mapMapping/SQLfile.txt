@@ -1,0 +1,12 @@
+create table questionmap(
+id integer primary key,
+name varchar2(50),
+username varchar2(50)
+);
+select * from questionmap
+create table answermap(
+questionid integer,
+answer varchar2(50),
+username varchar2(50),
+CONSTRAINT fksrss FOREIGN KEY (questionid) REFERENCES questionmap(id)
+);
