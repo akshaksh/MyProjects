@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- Prologs -->
+<!-- targetNamespace tells that any xml whoever use this schema has to use this namespace -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ajaykushwaha.org/Patient"
+	xmlns:tns="http://www.ajaykushwaha.org/Patient" elementFormDefault="qualified">
+<!-- elementFormDefault means whoever XML will use this schema will only able to use those elements which are under this schema and must need to use prefix-->
+<!-- value can be qualified or unqualified -->
+<!-- http://www.example.org/Patient for this url "tns" will be prefix -->
+
+	<!-- Root Element and only one per xsd and xml is case senstive -->
+	<element name="Patient" type="tns:Patient"></element>
+	<complexType name="Patient">
+		<sequence>
+			<element name="Id" type="tns:ID" maxOccurs="unbounded"></element> <!-- Min and max occur default is 1 -->
+			<element name="name" type="tns:String15"></element>
+			<element name="DOB" type="date"></element>
+			<element name="email" type="string"></element>
+			<element name="gender" type="tns:Gender"></element>
+			<element name="payment" type="tns:PaymentType"></element>
+		</sequence>
+		<attribute name="empid" type="tns:ID"></attribute>
+	</complexType>
+	
+	<!--  Complex Type inside Complex Type -->
+	<complexType name="PaymentType">
+		<choice> <!-- Choice means one of will come -->
+			<element name="Cash" type="int"></element>
+			<element name="insurance" type="tns:Insurance"></element>
+		</choice>
+	</complexType>
+	
+	<complexType name="Insurance">
+		<all> <!-- all will allow to add all tags -->
+			<element name="provider" type="string"></element>
+			<element name="limit" type="int"></element>
+		</all>
+	</complexType>
+	
+	<!-- Simple Type is use to make some restriction on the elements by extending the base type -->
+	<simpleType name="ID">
+		<restriction base="int">
+			<pattern value="[0-9]*"></pattern>
+		</restriction>
+	</simpleType>
+	<simpleType name="String15">
+		<restriction base="string">
+			<maxLength value="15"></maxLength>
+		</restriction>
+	</simpleType>
+	
+	<!-- For Enumeration -->
+	<simpleType name="Gender">
+		<restriction base="string">
+			<enumeration value="MALE"/>	
+			<enumeration value="FEMALE"/>
+		</restriction>
+	</simpleType>
+</schema>

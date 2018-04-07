@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Patient xmlns:tns="http://www.ajaykushwaha.org/Patient"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ajaykushwaha.org/Patient Patient.xsd " empid="123">
+	<tns:Id>0</tns:Id>
+	<tns:name>tns:name</tns:name>
+	<tns:DOB>2001-01-01</tns:DOB>
+	<tns:email>tns:email</tns:email>
+	<tns:gender>MALE</tns:gender>
+	<tns:payment>
+		<tns:Cash>0</tns:Cash>
+	</tns:payment>
+</tns:Patient>
