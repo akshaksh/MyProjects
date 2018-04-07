@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>ServletAndJSPPractice</display-name>
+  <context-param>
+    <param-name>con</param-name>
+    <param-value>vals</param-value>
+  </context-param>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Servlet1</servlet-name>
+    <servlet-class>servlets.Servlet1</servlet-class>
+    <init-param>
+      <param-name>age</param-name>
+      <param-value>209</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet1</servlet-name>
+    <url-pattern>/Servlet1</url-pattern>
+  </servlet-mapping>
+  <!-- More Than One Mapping URL for Servlets -->
+  <servlet-mapping>
+    <servlet-name>Servlet1</servlet-name>
+    <url-pattern>/ajay</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Servlet2</servlet-name>
+    <servlet-class>servlets.Servlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet2</servlet-name>
+    <url-pattern>/Servlet2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ServletLifeCycle</servlet-name>
+    <servlet-class>servlets.ServletLifeCycle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletLifeCycle</servlet-name>
+    <url-pattern>/ServletLifeCycle</url-pattern>
+  </servlet-mapping>
+  
+  <!-- JSP -->
+
+  <servlet>
+    <servlet-name>passedParameter</servlet-name>
+   	<jsp-file>/JSP/passedParameter.jsp</jsp-file>
+	    <init-param>
+		    <param-name>name</param-name>
+		    <param-value>hyfdhjfhjfjhfjhfhj</param-value>
+	    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>passedParameter</servlet-name>
+    <url-pattern>/pas</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
