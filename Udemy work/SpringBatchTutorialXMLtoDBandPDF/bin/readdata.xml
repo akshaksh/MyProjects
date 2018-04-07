@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<tutorials> 
+   <tutorial>      
+      <tutorial_id>1</tutorial_id> 
+      <tutorial_author>Sanjay</tutorial_author> 
+      <tutorial_title>LearnJava</tutorial_title> 
+      <submission_date>date1</submission_date> 
+      <tutorial_icon>url1</tutorial_icon> 
+      <tutorial_description>desc1</tutorial_description> 
+   </tutorial> 
+    
+   <tutorial>      
+      <tutorial_id>2</tutorial_id> 
+      <tutorial_author>Abdul</tutorial_author> 
+      <tutorial_title>LearnMySQL</tutorial_title> 
+      <submission_date>date2</submission_date> 
+      <tutorial_icon>url2</tutorial_icon> 
+      <tutorial_description>desc2</tutorial_description> 
+   </tutorial> 
+    
+   <tutorial>
+      <tutorial_id>3</tutorial_id> 
+      <tutorial_author>Krishna</tutorial_author> 
+      <tutorial_title>LearnJavaFX</tutorial_title> 
+      <submission_date>date3</submission_date> 
+      <tutorial_icon>url3</tutorial_icon> 
+      <tutorial_description>desc3</tutorial_description> 
+   </tutorial> 
+</tutorials>
