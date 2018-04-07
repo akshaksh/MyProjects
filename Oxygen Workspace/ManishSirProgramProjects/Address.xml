@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE addressbook SYSTEM "Address.dtd" >
+<addressbook>
+  <contact>
+    <name>name</name>
+    <address>address</address>
+    <city>city</city>
+    <state>state</state>
+    <zip>zip</zip>
+    <phone>phone</phone>
+    <email>email</email>
+  </contact>
+  <contact>
+    <name>name</name>
+    <address>address</address>
+    <city>city</city>
+    <state>state</state>
+    <zip>zip</zip>
+    <phone>phone</phone>
+    <email>email</email>
+  </contact>
+  <contact>
+    <name>name</name>
+    <address>address</address>
+    <city>city</city>
+    <state>state</state>
+    <zip>zip</zip>
+    <phone>phone</phone>
+    <email>email</email>
+  </contact>
+</addressbook>

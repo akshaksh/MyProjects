@@ -1,0 +1,11 @@
+<!ELEMENT addressbook (contact)>
+<!ELEMENT contact (name,address+,city,state,zip,phone,email)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT zip (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+
+<!--Space is mandatory between tag name and bracker of parsing data-->
