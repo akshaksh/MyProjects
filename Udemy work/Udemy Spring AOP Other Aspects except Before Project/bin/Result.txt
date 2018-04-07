@@ -1,0 +1,39 @@
+Case1) When all advices are there and everything executed properly
+Sep 17, 2017 4:59:34 PM org.springframework.context.annotation.AnnotationConfigApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7daf6ecc: startup date [Sun Sep 17 16:59:34 IST 2017]; root of context hierarchy
+Before @Around
+@Before
+After @Around
+Result :null
+Time taken: 22
+@After
+@AfterReturning
+Sep 17, 2017 4:59:34 PM org.springframework.context.annotation.AnnotationConfigApplicationContext doClose
+INFO: Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@7daf6ecc: startup date [Sun Sep 17 16:59:34 IST 2017]; root of context hierarchy
+
+
+case2) Throw Exception but handled by @Around only so @AfterThrow will not call here
+Sep 17, 2017 5:00:18 PM org.springframework.context.annotation.AnnotationConfigApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7daf6ecc: startup date [Sun Sep 17 17:00:18 IST 2017]; root of context hierarchy
+Before @Around
+@Before
+Hanlde by Around
+After @Around
+Result :null
+Time taken: 35
+@After
+@AfterReturning
+Sep 17, 2017 5:00:19 PM org.springframework.context.annotation.AnnotationConfigApplicationContext doClose
+INFO: Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@7daf6ecc: startup date [Sun Sep 17 17:00:18 IST 2017]; root of context hierarchy
+
+case3)After handling Exception by @Around we rethrow it and then handled by @AfterThrowing
+Sep 17, 2017 5:01:21 PM org.springframework.context.annotation.AnnotationConfigApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7daf6ecc: startup date [Sun Sep 17 17:01:21 IST 2017]; root of context hierarchy
+Before @Around
+@Before
+Hanlde by Around
+@After
+@AfterThrowing Exception caught:AccountDAO.checkException()
+Finally exception
+Sep 17, 2017 5:01:22 PM org.springframework.context.annotation.AnnotationConfigApplicationContext doClose
+INFO: Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@7daf6ecc: startup date [Sun Sep 17 17:01:21 IST 2017]; root of context hierarchy

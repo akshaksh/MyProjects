@@ -1,0 +1,7 @@
+1)It is almost same like uni so not required to change anything in table level
+2)We need to make changes in Instructor detail class
+Create a new Instructor field in InstructorDetail and their getter and setter and
+use of @onetoone annotation
+3)Perform curd operation
+4)Except insertion we can do all operation of crud except insertion because for that first parent record will come then only
+child record will come 

@@ -1,0 +1,68 @@
+package com.luv2code.hibernate.demo;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.luv2code.hibernate.demo.entity.Course;
+import com.luv2code.hibernate.demo.entity.Instructor;
+import com.luv2code.hibernate.demo.entity.InstructorDetail;
+public class CreateCourseInstructorAndDetailDemo {
+
+	public static void main(String[] args) {
+		//create session factory 
+				SessionFactory factory=new Configuration()
+										.configure("hibernate.cfg.xml")
+										.addAnnotatedClass(Instructor.class)
+										.addAnnotatedClass(InstructorDetail.class)
+										.addAnnotatedClass(Course.class)
+										.buildSessionFactory();
+
+				//create Session
+				Session session=factory.getCurrentSession();
+				try{
+					session.beginTransaction();
+					//Below tasks will perform
+					//Get the instructor from db
+					Instructor ins= new Instructor();
+					ins.setFirstName("A");
+					ins.setLastName("B");
+					ins.setEmail("a@a.com");
+					InstructorDetail insdtl=new InstructorDetail();
+					insdtl.setHobby("Watching");
+					insdtl.setYoutubeChannel("Carry");
+					ins.setInstructor_detail_id(insdtl);
+					
+					//Create some Course
+					Course c1=new Course();
+					c1.setTitle("C1");
+					Course c2=new Course();
+					c2.setTitle("C2");
+					Course c3=new Course();
+					c3.setTitle("C3");
+					//add courses to the instructor and save it
+					ins.add(c1);
+					ins.add(c2);
+					ins.add(c3);
+					
+					//Saving
+					//Record insertion is not possbile in this way
+					session.save(c1);
+					session.save(c2);
+					session.save(c3);
+					session.getTransaction().commit();
+					System.out.println("Record Insertion done !!!!");
+				}
+				catch(Exception e){
+					System.out.println("Exception :"+e);
+				}
+				finally{
+					//Close the session to save from any leakage on exception
+					session.close();
+					factory.close();
+				}
+				
+
+	}
+
+}
