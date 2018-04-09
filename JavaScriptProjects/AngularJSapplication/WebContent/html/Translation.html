@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Translation Work wirh Angular JS</title>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+<script src = "translate.js"></script>
+</head>
+<body ng-app="myapp">
+<h1>{{ 'TITLE' | translate }}</h1>
+<p>{{ 'FOO' | translate }}</p>
+<script>
+var app=angular.module("myapp",['pascalprecht.translate']);
+app.config(['$translateProvider', function ($translateProvider) {
+  $translateProvider.translations('en', {
+    'TITLE': 'Hello',
+    'FOO': 'This is a paragraph'
+  });
+ 
+  $translateProvider.translations('de', {
+    'TITLE': 'Hallo',
+    'FOO': 'Dies ist ein Absatz'
+  });
+ 
+  $translateProvider.preferredLanguage('de');
+}]);
+</script>
+</body>
+</html>

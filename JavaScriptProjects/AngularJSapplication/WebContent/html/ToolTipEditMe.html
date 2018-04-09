@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Tool Tip Edit Me Example</title>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style type="text/css">
+.mytooltip{
+    background-color: #5c9bb7;
+    background-image: -webkit-linear-gradient(top, #5c9bb7, #5392ad);
+    background-image: -moz-linear-gradient(top, #5c9bb7, #5392ad);
+    background-image: linear-gradient(top, #5c9bb7, #5392ad);
+    box-shadow: 0 1px 1px #ccc;
+    border-radius: 3px;
+    width: 290px;
+    padding: 10px;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+    top: 110px;
+    }
+.mytooltip::after{
+    content: '';
+    border: 6px solid #5190ac;
+    border-color: #5190ac transparent transparent;
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    margin-left: -102px;
+}
+p::before {
+    display: inline-block;
+    margin-right: 5px;
+    font-weight: normal;
+    vertical-align: text-bottom;
+}
+</style>
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+		     <div class="mytooltip" ng-show="showtooltip">
+				<input type="text" ng-model="value">
+			</div>
+			<p style="position: absolute;left: 50%;margin-left: -140px;top: 140px;">&#x270E</p><p ng-click="toggletooltip()" ng-bind="value" class="ng-pristine ng-valid" style="position: absolute;left: 50%;margin-left: -120px;top: 140px;">Edit me.</p>
+<script>
+var app=angular.module("myapp",[]);
+app.controller("myctrl", function($scope) {
+	$scope.showtooltip=false;
+	$scope.value='Edit me.'
+	$scope.toggletooltip=function(){
+		$scope.showtooltip=!($scope.showtooltip);
+	}
+})
+</script>
+</body>
+</html>

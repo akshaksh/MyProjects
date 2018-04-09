@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>NotePad</title>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+</head>
+<body ng-app = "myapp" ng-controller ="myctrl">
+<textarea rows="10" cols="10" style="overflow:auto;background-color:pink" ng-model="data"></textarea><br>
+<button id="save" ng-click="save()">save</button><button id="clear" ng-click="clear()">clear</button>
+<script>
+var app=angular.module("myapp", []);
+app.controller("myctrl", function($scope) {
+	$scope.data="Start Data";
+	$scope.save=function(){alert("Note Saved");};
+	$scope.clear=function(){$scope.data="";};
+})
+</script>
+</body>
+</html>
